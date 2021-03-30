@@ -81,10 +81,9 @@ class NestedTest < MiniTest::Test
   def test_list_of_all_ingredients_across_all_restaurants
 
     #=======================
-    ingredients = []
-    stores.values.map { |info|
+    ingredients = stores.values.map { |info|
       info[:dishes].map do |dish|
-        dish[:ingredients].map { |ingredient| ingredients << ingredient }
+        dish[:ingredients].map { |ingredient| ingredient }
       end
     }.flatten
     #=======================
