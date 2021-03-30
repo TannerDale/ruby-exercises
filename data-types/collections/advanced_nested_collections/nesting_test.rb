@@ -120,10 +120,9 @@ class NestedTest < MiniTest::Test
   def test_full_menu_for_olive_garden
 
     #=======================
-    olive_garden_menu = {}
-    stores[:olive_garden][:dishes].each do |dish|
-      olive_garden_menu[dish[:name]] = dish
-    end
+    olive_garden_menu = stores[:olive_garden][:dishes].map { |dish|
+      [dish[:name], dish]
+    }.to_h
     #=======================
     expected = ({"Risotto"=>{:name=>"Risotto", :ingredients=>["Rice", "Cheese", "Butter"], :price=>12},
                   "Steak"=>{:name=>"Steak", :ingredients=>["Beef", "Garlic"], :price=>15}})
@@ -133,12 +132,12 @@ class NestedTest < MiniTest::Test
   def test_menu_accross_all_restaurants
 
     #=======================
-    full_menu = {}
-    stores.each_value do |info|
-      info[:dishes].each do |dish|
-        full_menu[dish[:name]] = dish
-      end
-    end
+
+    full_menu = stores.each_value.map { |info|
+      info[:dishes].map { |dish|
+        [dish[:name], dish]
+      }.to_h
+    }.reduce(&:merge)
     #=======================
     expected = ({"Risotto"=>
                       {:name=>"Risotto", :ingredients=>["Rice", "Cheese", "Butter"], :price=>12},
