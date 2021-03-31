@@ -126,6 +126,7 @@ RSpec.describe 'inject pattern test' do
     expect(total_calories).to eq(6950)
   end
 
+
   it 'test 9' do
     grades = {
       quizzes: [8, 5, 3, 6, 5],
@@ -160,6 +161,7 @@ RSpec.describe 'inject pattern test' do
         gluten_free: true
       }
     }
+
 
     # Iterate over the menu hash above to create a printable
     # version of the menu
