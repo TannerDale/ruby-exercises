@@ -35,3 +35,4 @@ RSpec.describe Vampire do
     expect(vampire.thirsty).to be false
   end
 end
+#
