@@ -47,5 +47,37 @@ RSpec.describe Dragon do
     dragon.eat
     expect(dragon.hungry?).to be false
   end
+
+  it 'has no gold by default' do
+    dragon = Dragon.new("Puff", :green, "Snoop Dog")
+
+    expect(dragon.gold).to eq(0)
+  end
+
+  it 'steals gold' do
+    dragon = Dragon.new("Drogon", :red, "Daenerys")
+
+    3.times { dragon.eat }
+    expect(dragon.gold).to eq(0)
+
+    dragon.steal
+    dragon.steal
+
+    expect(dragon.gold).to eq(500)
+  end
+
+  it 'cannot steal while hungry' do
+    dragon = Dragon.new("Puff", :green, "Snoop Dog")
+
+    expect(dragon.steal).to eq("Too hungry, cannot steal.")
+    expect(dragon.gold).to eq(0)
+
+    3.times { dragon.eat }
+    2.times { dragon.steal }
+
+    expect(dragon.gold).to eq(500)
+
+  end
+
 end
 #
