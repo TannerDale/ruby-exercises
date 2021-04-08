@@ -1,6 +1,6 @@
 require "./lib/mad_lib"
 
-RSpec.describe MadLib do
+RSpec.describe Madlib do
 
   it 'can create a new mad lib' do
     madlib = Madlib.new
@@ -28,4 +28,3 @@ RSpec.describe MadLib do
     expect(result).to eq(expected)
   end
 end
-

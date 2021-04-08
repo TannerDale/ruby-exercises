@@ -30,7 +30,11 @@ RSpec.describe Retirement do
   end
 
   it 'errors with a negative retirement age' do
-    # write your test here
+    retire = Retirement.new
+
+    result = retire.calculate(26, -64)
+    expected = "Error. You cannot retire before you are born."
+
+    expect(result).to eq(expected)
   end
 end
-
