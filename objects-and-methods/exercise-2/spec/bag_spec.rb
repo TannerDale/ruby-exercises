@@ -7,15 +7,15 @@ RSpec.describe Bag do
     expect(Bag.new.empty?).to be true
   end
 
-  xit 'can count the candy in an emoty bag' do
+  it 'can count the candy in an emoty bag' do
     expect(Bag.new.count).to eq(0)
   end
 
-  xit 'has no candies when it is empty' do
+  it 'has no candies when it is empty' do
     expect(Bag.new.candies).to eq([])
   end
 
-  xit 'can put a candy in a bag' do
+  it 'can put a candy in a bag' do
     bag = Bag.new
 
     candy = Candy.new('Sour frogs')
@@ -25,21 +25,21 @@ RSpec.describe Bag do
     expect(bag.candies).to eq([candy])
   end
 
-  xit 'is not empty when it has candies' do
+  it 'is not empty when it has candies' do
     bag = Bag.new
     bag << Candy.new('Nerds')
 
     expect(bag.empty?).to be false
   end
 
-  xit 'can count candies' do
+  it 'can count candies' do
     bag = Bag.new
     bag << Candy.new('Caramelized Almonds')
 
     expect(bag.count).to eq(1)
   end
 
-  xit 'contains candies and candies have a type' do
+  it 'contains candies and candies have a type' do
     bag = Bag.new
     bag << Candy.new('Hersheys Kisses')
     # You usually don't want to chain a bunch of different
@@ -51,25 +51,25 @@ RSpec.describe Bag do
     expect(type).to eq('Hersheys Kisses')
   end
 
-  xit 'can be asked if it has a particular kind of candy' do
+  it 'can be asked if it has a particular kind of candy' do
     bag = Bag.new
     bag << Candy.new('Lindt chocolate')
 
     expect(bag.contains?('Lindt chocolate')).to be true
-    expect(bag.contains?('Nerds')).to false
+    expect(bag.contains?('Nerds')).to be false
   end
 
-  xit 'can get a particular type of candy' do
+  it 'can get a particular type of candy' do
     bag = Bag.new
     bag << Candy.new('Jawbreaker')
     bag << Candy.new('Jawbreaker')
     bag << Candy.new('Jolly Ranchers')
 
-    candy = bag.grab "Jawbreaker"
+    candy = bag.grab("Jawbreaker")
     expect(candy.type).to eq('Jawbreaker')
   end
 
-  xit 'removes candy from the bag when you grab it' do
+  it 'removes candy from the bag when you grab it' do
     bag = Bag.new
     bag << Candy.new('Reeses Pieces')
     bag << Candy.new('Junior Mints')
@@ -82,7 +82,7 @@ RSpec.describe Bag do
     expect(bag.count).to eq(2)
   end
 
-  xit 'can take a number of candies from the bag' do
+  it 'can take a number of candies from the bag' do
     bag = Bag.new
     bag << Candy.new('Swedish Fish')
     bag << Candy.new('Milky Way')
@@ -96,7 +96,7 @@ RSpec.describe Bag do
     expect(bag.count).to eq(1)
   end
 
-  xit 'can take one candy' do
+  it 'can take one candy' do
     bag = Bag.new
     bag << Candy.new('Lifesavers')
 
@@ -104,7 +104,3 @@ RSpec.describe Bag do
     expect(candy.type).to eq('Lifesavers')
   end
 end
-
-
-
-
