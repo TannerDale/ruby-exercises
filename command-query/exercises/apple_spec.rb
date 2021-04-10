@@ -18,4 +18,4 @@ RSpec.describe Apple do
     expect(apple.ripe?).to be true
   end
 end
-
+#

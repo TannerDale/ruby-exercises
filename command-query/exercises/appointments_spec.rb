@@ -29,3 +29,4 @@ RSpec.describe Appointments do
     expect(slots.earliest).to eq(t2)
   end
 end
+#

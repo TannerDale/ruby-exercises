@@ -16,3 +16,4 @@ RSpec.describe Light do
     expect(light.on?).to be true
   end
 end
+#
