@@ -1,5 +1,5 @@
 require 'spec_helper'
-require '../lib/creature'
+require './lib/creature'
 
 
 RSpec.describe 'Mytest', :type => :request do

@@ -2,19 +2,19 @@ require 'rspec'
 require './lib/unicorn'
 
 RSpec.describe Unicorn do
-  xit 'has a name' do
+  it 'has a name' do
     unicorn = Unicorn.new('Robert')
     expect(unicorn.name).to eq('Robert')
   end
 
-  xit 'is silver by default' do
+  it 'is silver by default' do
     unicorn = Unicorn.new('Margaret')
     expect(unicorn.color).to eq('silver')
     expect(unicorn.silver?).to eq(true)
     expect(unicorn.silver?).to be true
   end
 
-  xit 'doesnt have to be silver' do
+  it 'doesnt have to be silver' do
     unicorn = Unicorn.new('Barbara', 'purple')
     expect(unicorn.color).to eq('purple')
     expect(unicorn.silver?).to eq(false)

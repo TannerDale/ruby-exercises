@@ -13,4 +13,9 @@ class Unicorn
   def say(message)
     "**;* #{message} **;*"
   end
+
+  def color
+    @color
+  end
+
 end
