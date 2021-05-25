@@ -17,5 +17,4 @@ class Unicorn
   def color
     @color
   end
-
 end
