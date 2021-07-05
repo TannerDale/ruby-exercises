@@ -17,6 +17,7 @@ RSpec.describe Medusa do
     victim = Person.new('Perseus')
 
     medusa.stare(victim)
+    
     expect(medusa.statues.count).to eq(1)
     expect(medusa.statues.first.name).to eq('Perseus')
     expect(medusa.statues.first).to be_an_instance_of(Person)
@@ -39,11 +40,14 @@ RSpec.describe Medusa do
     victim4 = Person.new('Aquaman')
 
     victims = [victim, victim2, victim3, victim4]
+
     any_stoned = victims.any? do |victim|
       victim.stoned?
     end
     expect(any_stoned).to be false
+
     victims.each { |victim| medusa.stare(victim) }
+
     only_3 = victims.count do |victim|
       victim.stoned?
     end
@@ -62,11 +66,12 @@ RSpec.describe Medusa do
     any_stoned = victims.any? do |victim|
       victim.stoned?
     end
+
     expect(any_stoned).to be false
 
     victims.each { |victim| medusa.stare(victim) }
 
     expect(medusa.statues).to eq(victims[1..])
-    expect(victim1.stoned).to be false
+    expect(victim1.stoned?).to be false
   end
 end

@@ -15,7 +15,7 @@ class Direwolf
   end
 
   def hunts_white_walkers?
-    @starks_to_protect.empty? ? true : false
+    @starks_to_protect.empty?
   end
 
   def leaves(stark)

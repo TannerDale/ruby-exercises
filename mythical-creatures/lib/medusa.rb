@@ -1,29 +1,38 @@
 class Medusa
   attr_reader :name, :statues
+
   def initialize(name)
     @name = name
     @statues = []
   end
 
   def stare(victim)
-    victim.stoned = true
+    victim.get_stoned
+
     statues << victim
-    if statues.length > 3
-      statues.shift.stoned = false
-    end
+
+    statues.shift.get_sober if statues.length > 3
   end
 end
 
 
 class Person
-  attr_accessor :stoned
   attr_reader :name
+
   def initialize(name)
     @name = name
     @stoned = false
   end
 
   def stoned?
-    stoned
+    @stoned
+  end
+
+  def get_stoned
+    @stoned = true
+  end
+
+  def get_sober
+    @stoned = false
   end
 end
